@@ -54,4 +54,8 @@ public class Edge {
         this.visited = visited;
     }
     
+    public boolean equals(Edge edge){
+        return this.getOrigim().equals(edge.getOrigim()) && this.getDestiny().equals(edge.getDestiny()) ||
+               this.getOrigim().equals(edge.getDestiny()) && this.getDestiny().equals(edge.getOrigim());
+    }
 }

@@ -41,5 +41,9 @@ public class Vertice {
     public void setAdjacents(List<Edge> adjacents) {
         this.adjacents = adjacents;
     }
+
+    public boolean equals(Vertice vertice) {
+       return this.position == vertice.getPosition();
+    }
     
 }
