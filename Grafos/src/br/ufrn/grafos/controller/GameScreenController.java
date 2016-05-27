@@ -7,7 +7,7 @@ package br.ufrn.grafos.controller;
 
 /**
  *
- * @author aliso
+ * @author Alison
  */
 public class GameScreenController {
     

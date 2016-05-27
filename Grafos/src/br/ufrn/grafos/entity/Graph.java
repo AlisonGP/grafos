@@ -7,7 +7,7 @@ package br.ufrn.grafos.entity;
 
 /**
  *
- * @author aliso
+ * @author Alison
  */
 public class Graph {
     

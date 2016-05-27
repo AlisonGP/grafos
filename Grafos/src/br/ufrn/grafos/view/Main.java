@@ -7,7 +7,7 @@ package br.ufrn.grafos.view;
 
 /**
  *
- * @author aliso
+ * @author Alison
  */
 public class Main {
 
