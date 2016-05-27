@@ -5,6 +5,8 @@
  */
 package br.ufrn.grafos.view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Alison
@@ -27,22 +29,100 @@ public class TitleScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        qntdColunas = new javax.swing.JTextField();
+        qntdLinhas = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        criarLab = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+
+        qntdColunas.setText("   x");
+        qntdColunas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                qntdColunasActionPerformed(evt);
+            }
+        });
+
+        qntdLinhas.setText("   y");
+
+        jLabel1.setText("Quantidade de colunas:");
+
+        jLabel2.setText("Quantidade de linhas:");
+
+        criarLab.setText("Criar Labirinto");
+        criarLab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                criarLabActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(criarLab)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(qntdColunas, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                            .addComponent(qntdLinhas))))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(qntdColunas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(qntdLinhas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addComponent(criarLab)
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void qntdColunasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qntdColunasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_qntdColunasActionPerformed
+
+    private void criarLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarLabActionPerformed
+        // TODO add your handling code here:
+        try{
+            JOptionPane.showMessageDialog(null, "Quantidade de colunas: "
+                                + Integer.parseInt(qntdColunas.getText())
+                                + "\nQuantidade de linhas: "
+                                + Integer.parseInt(qntdLinhas.getText()),
+                                "Parâmetros de entrada inválidos",
+                                JOptionPane.ERROR_MESSAGE);
+        }
+        catch (NumberFormatException nfe){
+            JOptionPane.showMessageDialog(null, "Campo(s) de entrada vazio(s) ou inválido(s)."
+                        + "\nAs quantidades de coluna e linhas devem ser números inteiros.",
+                        "Parâmetros inválidos",
+                        JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_criarLabActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton criarLab;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField qntdColunas;
+    private javax.swing.JTextField qntdLinhas;
     // End of variables declaration//GEN-END:variables
 }
