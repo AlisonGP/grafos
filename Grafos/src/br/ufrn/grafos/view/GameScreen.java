@@ -17,7 +17,9 @@ public class GameScreen extends javax.swing.JFrame {
     public GameScreen() {
         initComponents();
     }
-
+    public GameScreen(int width, int height){
+        initComponents();        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
