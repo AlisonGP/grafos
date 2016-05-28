@@ -5,6 +5,7 @@
  */
 package br.ufrn.grafos.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,23 +15,29 @@ import java.util.List;
 public class Vertice {
     
     /** Posição na matriz */
-    private int position;
+    private Position position;
     /** Lista de arestas com os vertices adjacentes. */
     private List<Edge> adjacents;
 
     public Vertice() {
+        this.adjacents = new ArrayList<>();
     }
 
-    public Vertice(int position, List<Edge> adjacents) {
+    public Vertice(Position position) {
+        this.position = position;
+        this.adjacents = new ArrayList<>();
+    }
+    
+    public Vertice(Position position, List<Edge> adjacents) {
         this.position = position;
         this.adjacents = adjacents;
     }
 
-    public int getPosition() {
+    public Position getPosition() {
         return position;
     }
 
-    public void setPosition(int position) {
+    public void setPosition(Position position) {
         this.position = position;
     }
 
@@ -43,7 +50,7 @@ public class Vertice {
     }
 
     public boolean equals(Vertice vertice) {
-       return this.position == vertice.getPosition();
+       return this.position.equals(vertice.getPosition());
     }
     
 }
