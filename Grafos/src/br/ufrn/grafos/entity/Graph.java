@@ -60,7 +60,7 @@ public class Graph {
                 control = true;
         }
         if(!control){
-            addVertice(edge.getOrigim());
+            addVertice(edge.getOrigin());
             addVertice(edge.getDestiny());
             edges.add(edge);
         }
@@ -85,5 +85,18 @@ public class Graph {
             return true;
         }
         return false;
+    }
+    
+    @Override
+    public String toString(){
+        String result = "";
+        for(Vertice vertice : vertices){
+            result += vertice.toString()+", ";
+        }
+        result += "\n";
+        for(Edge edge: edges){
+            result += edge.toString()+",";
+        }
+        return result;
     }
 }

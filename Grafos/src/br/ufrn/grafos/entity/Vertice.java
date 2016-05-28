@@ -28,6 +28,11 @@ public class Vertice {
         this.adjacents = new ArrayList<>();
     }
     
+    public Vertice(int row, int column) {
+        this.position = new Position(row, column);
+        this.adjacents = new ArrayList<>();
+    }
+    
     public Vertice(Position position, List<Edge> adjacents) {
         this.position = position;
         this.adjacents = adjacents;
@@ -41,6 +46,11 @@ public class Vertice {
         this.position = position;
     }
 
+    public void setPosition(int row, int column) {
+        this.position.setRow(row);
+        this.position.setColumn(column);
+    }
+    
     public List<Edge> getAdjacents() {
         return adjacents;
     }
@@ -53,4 +63,8 @@ public class Vertice {
        return this.position.equals(vertice.getPosition());
     }
     
+    @Override
+    public String toString(){
+        return "("+position.toString()+")";
+    }
 }

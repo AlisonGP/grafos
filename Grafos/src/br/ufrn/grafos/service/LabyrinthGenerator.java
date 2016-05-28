@@ -25,7 +25,7 @@ public class LabyrinthGenerator {
         initSubgraphs(graph);
         try{
             for(Edge edge : edges){
-                Graph graph1 = getGraph(edge.getOrigim());
+                Graph graph1 = getGraph(edge.getOrigin());
                 Graph graph2 = getGraph(edge.getDestiny());
                 if(!graph1.equals(graph2)){
                     unionGraph(graph1, graph2);

@@ -5,6 +5,7 @@
  */
 package br.ufrn.grafos.view;
 
+import br.ufrn.grafos.entity.Edge;
 import br.ufrn.grafos.entity.Graph;
 import br.ufrn.grafos.entity.Vertice;
 import java.util.ArrayList;
@@ -24,13 +25,5 @@ public class Main {
     }
     
     
-    public static Graph generateGraph(int line, int cols){
-        Graph graph = new Graph();
-        int length = line * cols;
-        for(int currentIndex = 0; currentIndex < length; currentIndex++){
-            
-            
-        }
-        return null;
-    }
+   
 }

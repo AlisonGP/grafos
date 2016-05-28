@@ -40,4 +40,10 @@ public class Position {
     public boolean equals(Position position){
         return (this.row == position.row && this.column == position.column);
     }
+    
+    @Override
+    public String toString(){
+        return row+", "+column;
+    }
+    
 }

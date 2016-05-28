@@ -10,7 +10,7 @@ package br.ufrn.grafos.entity;
  * @author aliso
  */
 public class Edge {
-    private Vertice origim;
+    private Vertice origin;
     private Vertice destiny;
     private boolean visited; 
    
@@ -18,24 +18,24 @@ public class Edge {
         this.visited = false;
     }
 
-    public Edge(Vertice origim, Vertice destiny) {
-        this.origim = origim;
+    public Edge(Vertice origin, Vertice destiny) {
+        this.origin = origin;
         this.destiny = destiny;
         this.visited = false;
     }
 
-    public Edge(Vertice origim, Vertice destiny, boolean visited) {
-        this.origim = origim;
+    public Edge(Vertice origin, Vertice destiny, boolean visited) {
+        this.origin = origin;
         this.destiny = destiny;
         this.visited = visited;
     }
     
-    public Vertice getOrigim() {
-        return origim;
+    public Vertice getOrigin() {
+        return origin;
     }
 
-    public void setOrigim(Vertice origim) {
-        this.origim = origim;
+    public void setOrigin(Vertice origin) {
+        this.origin = origin;
     }
 
     public Vertice getDestiny() {
@@ -55,7 +55,11 @@ public class Edge {
     }
     
     public boolean equals(Edge edge){
-        return this.getOrigim().equals(edge.getOrigim()) && this.getDestiny().equals(edge.getDestiny()) ||
-               this.getOrigim().equals(edge.getDestiny()) && this.getDestiny().equals(edge.getOrigim());
+        return this.getOrigin().equals(edge.getOrigin()) && this.getDestiny().equals(edge.getDestiny()) ||
+               this.getOrigin().equals(edge.getDestiny()) && this.getDestiny().equals(edge.getOrigin());
+    }
+    
+    public String toString(){
+        return "("+origin+", "+destiny+")";
     }
 }
