@@ -8,13 +8,16 @@ package br.ufrn.grafos.controller;
 import br.ufrn.grafos.entity.Edge;
 import br.ufrn.grafos.entity.Graph;
 import br.ufrn.grafos.entity.Vertice;
+import br.ufrn.grafos.service.LabyrinthGeneratorService;
 
 /**
  *
  * @author Alison
  */
 public class GameScreenController {
-
+    
+    private LabyrinthGeneratorService labyrinthGeneratorService = new LabyrinthGeneratorService();
+    
     public Graph generateGraph(int rows, int columns) {
         Graph graph = new Graph();
         for (int currentRow = 0; currentRow < rows; currentRow++) {
@@ -32,5 +35,9 @@ public class GameScreenController {
             }
         }
         return graph;
+    }
+    
+    public void generateLabyrinth(Graph graph){
+        labyrinthGeneratorService.generate(graph);
     }
 }

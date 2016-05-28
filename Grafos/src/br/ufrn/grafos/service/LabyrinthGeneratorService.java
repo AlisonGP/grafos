@@ -16,7 +16,7 @@ import java.util.List;
  *
  * @author aliso
  */
-public class LabyrinthGenerator {
+public class LabyrinthGeneratorService {
     List<Graph> subgraphs = new ArrayList<Graph>();
     
     public void generate(Graph graph){
@@ -39,12 +39,13 @@ public class LabyrinthGenerator {
         //Só pra testar.
         if(subgraphs.size() > 0){
             System.out.println("Maior que zero: "+subgraphs.size());
+            System.out.println(subgraphs.get(0).toString());
         }
     }
     
     private Graph getGraph(Vertice vertice){
         for(Graph graph: subgraphs){
-            if(graph.getVertices().contains(vertice))
+            if(graph.contains(vertice))
                 return graph;
         }
         return null;
@@ -54,12 +55,19 @@ public class LabyrinthGenerator {
         for(Edge edge : graph2.getEdges()){
             graph1.addEdge(edge);
         }
-        subgraphs.remove(graph2);
+        remove(graph2);
     }
     
     private void initSubgraphs(Graph graph){
         for(Vertice vertice : graph.getVertices()){
             subgraphs.add(new Graph(vertice));
+        }
+    }
+    
+    public void remove(Graph graph){
+        for(int currentIndex = 0; currentIndex < subgraphs.size(); currentIndex++){
+            if(subgraphs.get(currentIndex).equals(graph))
+                subgraphs.remove(currentIndex);
         }
     }
 }

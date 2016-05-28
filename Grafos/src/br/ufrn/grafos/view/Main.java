@@ -5,6 +5,7 @@
  */
 package br.ufrn.grafos.view;
 
+import br.ufrn.grafos.controller.GameScreenController;
 import br.ufrn.grafos.entity.Edge;
 import br.ufrn.grafos.entity.Graph;
 import br.ufrn.grafos.entity.Vertice;
@@ -20,10 +21,11 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        TitleScreen game = new TitleScreen();
-        game.setVisible(true);
-    }
-    
-    
+        //TitleScreen game = new TitleScreen();
+        //game.setVisible(true);
+        GameScreenController gameScreenController = new GameScreenController();
+        Graph graph = gameScreenController.generateGraph(3, 3);
+        gameScreenController.generateLabyrinth(graph);
+    }    
    
 }
