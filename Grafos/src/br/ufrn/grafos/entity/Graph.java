@@ -77,14 +77,31 @@ public class Graph {
     }
     
     public boolean equals(Graph graph){
-        if(graph.getEdges() != null || this.edges.size() == graph.edges.size()){
-            for(int indexEdge = 0; indexEdge < edges.size(); indexEdge++){
-                if(!this.edges.get(indexEdge).equals(graph.edges.get(indexEdge)))
+        
+        if(this.isEmpty() && graph.isEmpty())
+            return true;
+        
+        if(this.edges.isEmpty() && graph.edges.isEmpty()){
+            if(this.nunberOfVertices() == graph.nunberOfVertices()){
+                for(Vertice currentVertice : this.vertices){
+                    if(!graph.contains(currentVertice))
+                        return false;
+                }
+                return true;
+            }
+            return false;
+        }
+        
+        if(this.numberOfEdges() == graph.numberOfEdges()){
+            for(Edge currentEdge : this.edges){
+                if(!graph.contains(currentEdge))
                     return false;
             }
             return true;
         }
+        
         return false;
+        
     }
     
     @Override
@@ -99,4 +116,33 @@ public class Graph {
         }
         return result;
     }
+    
+    public boolean contains(Vertice vertice){
+        for(Vertice currentVertice : vertices){
+            if(currentVertice.equals(vertice))
+                return true;
+        }
+        return false;
+    }
+    
+    public boolean contains(Edge edge){
+        for(Edge currentEdge : edges){
+            if(currentEdge.equals(edge))
+                return true;
+        }
+        return false;
+    }
+    
+    public boolean isEmpty(){
+        return (this.edges.isEmpty() && this.vertices.isEmpty());
+    }
+    
+    public int numberOfEdges(){
+        return this.edges.size();
+    }
+    
+    public int nunberOfVertices(){
+        return this.vertices.size();
+    }
+    
 }
