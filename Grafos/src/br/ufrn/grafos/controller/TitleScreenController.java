@@ -15,6 +15,7 @@ public class TitleScreenController {
     
     TitleScreen titleScreen;
     GameScreenController gameScreenController;
+    
     public TitleScreenController(){
         gameScreenController = new GameScreenController();
         titleScreen = new TitleScreen();

@@ -5,6 +5,9 @@
  */
 package br.ufrn.grafos.view;
 
+import br.ufrn.grafos.controller.GameScreenController;
+import br.ufrn.grafos.service.LabyrinthGeneratorService;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,7 +19,14 @@ public class TitleScreen extends javax.swing.JFrame {
     /**
      * Creates new form TitleScreen
      */
+    public JFrame window;
+    public GameScreenController gameScreenController;
+    public LabyrinthGeneratorService labyrinthGeneratorService;
+    
     public TitleScreen() {
+        window = new JFrame();
+        gameScreenController = new GameScreenController();
+        labyrinthGeneratorService = new LabyrinthGeneratorService();
         initComponents();
     }
 
@@ -103,12 +113,17 @@ public class TitleScreen extends javax.swing.JFrame {
     private void criarLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarLabActionPerformed
         // TODO add your handling code here:
         try{
-            JOptionPane.showMessageDialog(null, "Quantidade de colunas: "
-                                + Integer.parseInt(qntdColunas.getText())
-                                + "\nQuantidade de linhas: "
-                                + Integer.parseInt(qntdLinhas.getText()),
-                                "Parâmetros de entrada inválidos",
-                                JOptionPane.ERROR_MESSAGE);
+            int colunas = Integer.parseInt(qntdColunas.getText());
+            int linhas = Integer.parseInt(qntdLinhas.getText());
+            
+            labyrinthGeneratorService.generate(gameScreenController.generateGraph(linhas, colunas));
+            
+            window.getContentPane().removeAll();
+            window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            window.setBounds(30, 30, (colunas*20)+25, (linhas*20)+45);
+            window.getContentPane().add(new MyCanvas(colunas, linhas, labyrinthGeneratorService));
+            
+            window.setVisible(true);
         }
         catch (NumberFormatException nfe){
             JOptionPane.showMessageDialog(null, "Campo(s) de entrada vazio(s) ou inválido(s)."

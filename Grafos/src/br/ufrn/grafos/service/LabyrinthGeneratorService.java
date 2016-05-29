@@ -17,7 +17,10 @@ import java.util.List;
  * @author aliso
  */
 public class LabyrinthGeneratorService {
-    List<Graph> subgraphs = new ArrayList<Graph>();
+    public List<Graph> subgraphs = new ArrayList<Graph>();
+
+    public LabyrinthGeneratorService() {
+    }
     
     public void generate(Graph graph){
         ArrayList<Edge> edges = (ArrayList) graph.getEdges();
@@ -72,5 +75,9 @@ public class LabyrinthGeneratorService {
             if(subgraphs.get(currentIndex).equals(graph))
                 subgraphs.remove(currentIndex);
         }
+    }
+    
+    public Graph caminhoFinal(){
+        return subgraphs.get(0);
     }
 }

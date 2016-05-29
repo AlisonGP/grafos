@@ -20,7 +20,7 @@ public class GameScreenController {
     private final LabyrinthGeneratorService labyrinthGeneratorService = new LabyrinthGeneratorService();
     private final GameScreen gameScreen = new GameScreen();
     
-    GameScreenController(){
+    public GameScreenController(){
         gameScreen.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     
