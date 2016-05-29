@@ -77,7 +77,7 @@ public class MyCanvas extends javax.swing.JPanel {
         g.drawRect (px2, px2, x*px, y*px);
         
         //desenhar linhas
-        for (int i = 1; i < x; i++) {
+        for (int i = 1; i < y; i++) {
             g.drawLine (px2, px2 + (px * i), (x*px) + px2, px2 + (px * i));
         }
         
