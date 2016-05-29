@@ -24,14 +24,20 @@ public class LabyrinthGeneratorService {
         Collections.shuffle(edges);
         initSubgraphs(graph);
         try{
+            int i=0;
             for(Edge edge : edges){
+                //System.out.println(edge.toString());
                 Graph graph1 = getGraph(edge.getOrigin());
                 Graph graph2 = getGraph(edge.getDestiny());
                 if(!graph1.equals(graph2)){
+                    i++;
+                    System.out.println(edge.toString());
                     unionGraph(graph1, graph2);
                     graph1.addEdge(edge);
+                    remove(graph2);
                 }
             }
+            System.out.println(i + " Arestas");
         }catch(NullPointerException ex){
             System.out.println("A lista de subgrafos não foi inicializada corretamente.");
             ex.printStackTrace();
@@ -55,8 +61,7 @@ public class LabyrinthGeneratorService {
         for(Edge edge : graph2.getEdges()){
             graph1.addEdge(edge);
         }
-        //remove(graph2);
-        graph2 = null;  // mais fácil remover assim :p 
+        //graph2 = null;  // mais fácil remover assim :p 
     }
     
     private void initSubgraphs(Graph graph){
