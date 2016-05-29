@@ -95,11 +95,19 @@ public class MyCanvas extends javax.swing.JPanel {
             distanciaLinha = moduloDistancia(linhaOrigem,linhaDestino);
             distanciaColuna = moduloDistancia(linhaOrigem,linhaDestino);
             
-            //g.drawLine(11,30,29,30); // coluna
+            //g.drawLine(11,30,29,30);
+            //g.drawLine(11,50,29,50);
+            
+            
+            //g.drawLine(30,11,30,29);  // mesma linha
+            //g.drawLine(50,11,50,29);
             
             if(linhaOrigem == linhaDestino){
-                g.drawLine(30,11,30,29);
-                //g.drawLine(30 + (distanciaLinha * 20),11,30 + (distanciaLinha * 20),29); // linha
+                g.drawLine(30 + (20 * colunaOrigem), 11 + (20 * linhaOrigem), 30 + (20 * colunaOrigem), 29 + (20 * linhaOrigem));
+            }
+            
+            if(colunaOrigem == colunaDestino){
+                g.drawLine(11 + (20 * colunaOrigem), 30 + (20 * linhaOrigem), 29 + (20 * colunaOrigem),30 + (20 * linhaOrigem));
             }
         }
         
