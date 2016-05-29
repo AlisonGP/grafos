@@ -49,33 +49,44 @@ public class MyCanvas extends javax.swing.JPanel {
         initComponents();
     }
     
-    public int moduloDistancia(int a, int b){
-        if(a > b){
-            return a - b;
+    public int getPx(int x, int y){
+        int px;
+        
+        if(y > x){
+            x = y;
         }
-        if(a < b){
-            return b - a;
-        }
-        return 0;
+        if(x <= 25)
+            return 20;
+        else
+            return 15;
     }
 
     public void paint(Graphics g) {
         
+        //dimensao de cada celula do labirinto
+        int px = getPx(x,y);
+        int px2 = px/2;
+        
+        
+        //desenhar fundo do retangulo
         g.setColor(white);
-        g.fillRect (10, 10, x*20, y*20);
+        g.fillRect (px2, px2, x*px, y*px);
       
+        //desenhar contorno retangulo
         g.setColor(black);
-        g.drawRect (10, 10, x*20, y*20);
+        g.drawRect (px2, px2, x*px, y*px);
         
+        //desenhar linhas
         for (int i = 1; i < x; i++) {
-            g.drawLine (10, 10 + (20 * i), (y*20) + 10, 10 + (20 * i));
+            g.drawLine (px2, px2 + (px * i), (x*px) + px2, px2 + (px * i));
         }
         
+        //desenhar colunas
         for (int j = 1; j < x; j++) {
-            g.drawLine (10 + (20 * j), 10, 10 + (20 * j), (y*20) + 10);
+            g.drawLine (px2 + (px * j), px2, px2 + (px * j), (y*px) + px2);
         }
         
-        //exemplo de linha apagada=
+        //apagar as paredes
         g.setColor(white);
         
         List<Edge> edges = labyrinthGeneratorService.caminhoFinal().getEdges();
@@ -92,27 +103,14 @@ public class MyCanvas extends javax.swing.JPanel {
             linhaDestino = edge.getDestiny().getPosition().getRow();
             colunaDestino = edge.getDestiny().getPosition().getColumn();
             
-            distanciaLinha = moduloDistancia(linhaOrigem,linhaDestino);
-            distanciaColuna = moduloDistancia(linhaOrigem,linhaDestino);
-            
-            //g.drawLine(11,30,29,30);
-            //g.drawLine(11,50,29,50);
-            
-            
-            //g.drawLine(30,11,30,29);  // mesma linha
-            //g.drawLine(50,11,50,29);
-            
             if(linhaOrigem == linhaDestino){
-                g.drawLine(30 + (20 * colunaOrigem), 11 + (20 * linhaOrigem), 30 + (20 * colunaOrigem), 29 + (20 * linhaOrigem));
+                g.drawLine(px2 + px + (px * colunaOrigem), px2 + 1 + (px * linhaOrigem), px2 + px + (px * colunaOrigem), px2 + px - 1 + (px * linhaOrigem));
             }
             
             if(colunaOrigem == colunaDestino){
-                g.drawLine(11 + (20 * colunaOrigem), 30 + (20 * linhaOrigem), 29 + (20 * colunaOrigem),30 + (20 * linhaOrigem));
+                g.drawLine(px2 + 1 + (px * colunaOrigem), px2 + px + (px * linhaOrigem), px2 + px -1 + (px * colunaOrigem), px2 + px + (px * linhaOrigem));
             }
         }
-        
-        //g.drawLine(11,30,29,30); // coluna
-        //g.drawLine(30,11,30,29); // linha
       
     }
 
