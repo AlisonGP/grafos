@@ -56,7 +56,7 @@ public class LabyrinthGeneratorService {
             graph1.addEdge(edge);
         }
         //remove(graph2);
-        graph2 = null;  // mais fácil remover assim :p
+        graph2 = null;  // mais fácil remover assim :p 
     }
     
     private void initSubgraphs(Graph graph){
