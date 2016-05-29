@@ -25,8 +25,6 @@ public class TitleScreen extends javax.swing.JFrame {
     
     public TitleScreen() {
         window = new JFrame();
-        gameScreenController = new GameScreenController();
-        labyrinthGeneratorService = new LabyrinthGeneratorService();
         initComponents();
     }
 
@@ -115,12 +113,24 @@ public class TitleScreen extends javax.swing.JFrame {
         try{
             int colunas = Integer.parseInt(qntdColunas.getText());
             int linhas = Integer.parseInt(qntdLinhas.getText());
+            int maiorDimensao = colunas;
+            if(linhas > colunas){
+                maiorDimensao = linhas;
+            }
+            
+            gameScreenController = new GameScreenController();
+            labyrinthGeneratorService = new LabyrinthGeneratorService();
             
             labyrinthGeneratorService.generate(gameScreenController.generateGraph(linhas, colunas));
             
             window.getContentPane().removeAll();
-            window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            window.setBounds(30, 30, (colunas*20)+25, (linhas*20)+45);
+            //window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            if(maiorDimensao <= 25){
+                window.setBounds(30, 30, (colunas*20)+25, (linhas*20)+45);
+            }
+            else{
+                window.setBounds(30, 30, (colunas*15)+15, (linhas*15)+37);
+            }
             window.getContentPane().add(new MyCanvas(colunas, linhas, labyrinthGeneratorService));
             
             window.setVisible(true);
