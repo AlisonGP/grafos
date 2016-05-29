@@ -9,14 +9,20 @@ import br.ufrn.grafos.entity.Edge;
 import br.ufrn.grafos.entity.Graph;
 import br.ufrn.grafos.entity.Vertice;
 import br.ufrn.grafos.service.LabyrinthGeneratorService;
-
+import br.ufrn.grafos.view.GameScreen;
+import javax.swing.JFrame;
 /**
  *
  * @author Alison
  */
 public class GameScreenController {
     
-    private LabyrinthGeneratorService labyrinthGeneratorService = new LabyrinthGeneratorService();
+    private final LabyrinthGeneratorService labyrinthGeneratorService = new LabyrinthGeneratorService();
+    private final GameScreen gameScreen = new GameScreen();
+    
+    GameScreenController(){
+        gameScreen.setExtendedState(JFrame.MAXIMIZED_BOTH);
+    }
     
     public Graph generateGraph(int rows, int columns) {
         Graph graph = new Graph();
@@ -40,4 +46,9 @@ public class GameScreenController {
     public void generateLabyrinth(Graph graph){
         labyrinthGeneratorService.generate(graph);
     }
+    
+    public void show(){
+        gameScreen.setVisible(true);
+    }
+    
 }

@@ -26,12 +26,9 @@ public class LabyrinthGeneratorService {
         try{
             int i=0;
             for(Edge edge : edges){
-                //System.out.println(edge.toString());
                 Graph graph1 = getGraph(edge.getOrigin());
                 Graph graph2 = getGraph(edge.getDestiny());
                 if(!graph1.equals(graph2)){
-                    i++;
-                    System.out.println(edge.toString());
                     unionGraph(graph1, graph2);
                     graph1.addEdge(edge);
                     remove(graph2);
