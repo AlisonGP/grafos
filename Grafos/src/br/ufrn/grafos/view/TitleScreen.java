@@ -132,7 +132,7 @@ public class TitleScreen extends javax.swing.JFrame {
                 window.setBounds(30, 30, (colunas*15)+15, (linhas*15)+37);
             }
             window.getContentPane().add(new MyCanvas(colunas, linhas, labyrinthGeneratorService));
-            
+            window.setExtendedState(JFrame.MAXIMIZED_BOTH);
             window.setVisible(true);
         }
         catch (NumberFormatException nfe){
