@@ -33,11 +33,6 @@ public class LabyrinthGeneratorService {
             System.out.println("A lista de subgrafos não foi inicializada corretamente.");
             ex.printStackTrace();
         }
-        //Só pra testar.
-        if(subgraphs.size() > 0){
-            System.out.println("Maior que zero: "+subgraphs.size());
-            System.out.println(subgraphs.get(0).toString());
-        }
     }
     
     private Graph getGraph(Vertice vertice){

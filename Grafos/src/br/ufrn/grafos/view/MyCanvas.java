@@ -4,10 +4,7 @@ import br.ufrn.grafos.entity.Edge;
 import br.ufrn.grafos.service.LabyrinthGeneratorService;
 import static java.awt.Color.*;
 import java.awt.Graphics;
-import static java.awt.SystemColor.window;
 import java.util.List;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
 
 
 
