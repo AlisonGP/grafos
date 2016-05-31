@@ -47,7 +47,6 @@ public class LabyrinthGeneratorService {
         for(Edge edge : graph2.getEdges()){
             graph1.addEdge(edge);
         }
-        //graph2 = null;  // mais fácil remover assim :p 
     }
     
     private void initSubgraphs(Graph graph){
