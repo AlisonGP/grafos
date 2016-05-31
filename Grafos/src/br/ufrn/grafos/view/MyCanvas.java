@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.ufrn.grafos.view;
 
 import br.ufrn.grafos.entity.Edge;
@@ -14,19 +9,10 @@ import java.util.List;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 
-/**
- *
- * @author GilbertoSoares
- */
+
 
 class DrawRect {
-//    public static void main(String[] a) {
-//      JFrame window = new JFrame();
-//      window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//      window.setBounds(30, 30, 300, 300);
-//      window.getContentPane().add(new MyCanvas());
-//      window.setVisible(true);
-//    }
+
 }
 
 public class MyCanvas extends javax.swing.JPanel {
